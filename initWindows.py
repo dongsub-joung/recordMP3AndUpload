@@ -67,6 +67,10 @@ def getFuid():
 def uploadingDir(file_name: str, file_type: str, total_chunk: str):
     return str(respon_oject)
 
+def getUploadingSize(file_name: str): int
+    file_size= 0 
+    return file_size
+
 # Main
 DATE= datetime.date.today().strftime("%d%m%Y")
 CURRENT_INFOMATION_SUMMTION= f'SUM){DATE}.txt'
@@ -91,9 +95,9 @@ except IOError as e:
 m_array_index= getIndex(m_array_index, file_names)
 for index in range(0, m_array_index):
     fileNameing(file_names[index], data_createds[index], date_modifieds[index])
-
-
+    file_size= getUploadingSize(file_names[index])
 # 3. Uploading
+
 fuid: str= getFuid()
 uploadingDir(PATH)
 # End

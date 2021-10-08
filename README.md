@@ -15,9 +15,9 @@
 - Python 3
 - https://ufile.io  
 
-## Files Usage  
+## Usage  
 
-- Node File Valuable infomation(Once get "stat_result" when init)  
+### Node File Valuable infomation(Once get "stat_result" when init)  
     by OS __init__.pyi  
 
 ```py
@@ -59,5 +59,34 @@ st_mode: int  # protection bits,
     st_type: int
 ```  
 
+### ufile.io  
+
+- get fuid  
+```bash  
+$ curl 'https://up.ufile.io/v1/upload/create_session' \
+-d 'file_size=TOTAL_SIZE_OF_FILE'
+```  
+
+- Upload
+```bash
+curl 'https://up.ufile.io/v1/upload/finalise' \
+-d 'fuid=FUID_FROM_SESSION_REQUEST' \
+-d 'file_name=YOUR_FILENAME' \
+-d 'file_type=YOUR_EXTENSION' \
+-d 'total_chunks=TOTAL_CHUNK_COUNT'
+
+For example:
+curl 'https://up.ufile.io/v1/upload/finalise' \
+-d 'fuid=7b40c3f085481e8fb4feb2a7c914905b' \
+-d 'file_name=Screenshot 2021-07-09 at 15.47.05.png' \
+-d 'file_type=png' \
+-d 'total_chunks=1'
+```
+
 ## Reference  
 - https://help.ufile.io/en/article/upload-files-1p925sk/  
+
+## By Me: @auther, Joung DongSub  
+### Twiiter  
+- https://twitter.com/LVnnBhxDvR1fb4w
+- https://twitter.com/dong_ub  
