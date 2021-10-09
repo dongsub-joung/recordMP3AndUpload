@@ -86,6 +86,11 @@ curl 'https://up.ufile.io/v1/upload/finalise' \
 ## Reference  
 - https://help.ufile.io/en/article/upload-files-1p925sk/  
 
+## Toy-tool
+### generate File's infomation per 
+- node file title: file's iher  
+- st_dev, st_uid, st_size, st_mtime  
+
 ## By Me: @auther, Joung DongSub  
 ### Twiiter  
 - https://twitter.com/LVnnBhxDvR1fb4w

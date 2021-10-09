@@ -1,6 +1,6 @@
 import os
 
-PATH= 'c:/Users/test/Documents/Sound recordings'
+PATH= 'c:/Users/test/Documents/Sound_recordings'
 
 def getFileNames():
     try:
