@@ -11,8 +11,13 @@ def getFileNames():
 def saveFileInfoInTXT(node_file_name: str, path: str):
     try:
         with open(f'{node_file_name}', 'w') as f:
-            stat_result= str(os.stat(path))
-            f.write(stat_result)
+            device_info: int= os.stat(path).st_dev
+            uid: int= os.stat(path).st_uid
+            byte_size: int= os.stat(path).st_size
+            modified_time_recently: float= os.stat(path).st_mtime
+            INFOMATION= f'device_info: {device_info}, uid: {uid}, byte_size: {byte_size}, modified_time_recently: {modified_time_recently}'
+            # created_time
+            f.write(INFOMATION)
     except IOError as e:
         print(e+"stat_result, so set default")
 
