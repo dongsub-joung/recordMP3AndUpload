@@ -1,10 +1,21 @@
-import os
+# detali : Geneater the Folder title on date 
+# @auther: Joung DongSub
+# @Contact: e-mail or twitter  
+#           joungdongsub1103@gmail.com  
+#           https://twitter.com/dong_ub 
+# @history, @Date  
+#   - Foleder
 
-PATH= 'c:/Users/test/Documents/Sound_recordings'
+import os
+import datetime
+
+PATH= 'c:/Users/test/Documents/'
+FOLDER= 'Sound recordings'
 
 def getFileNames():
+    DIR= PATH+FOLDER
     try:
-        return os.listdir(PATH)
+        return os.listdir(DIR)
     except IOError as e:
         print(e+"file names")
 
@@ -23,6 +34,7 @@ def saveFileInfoInTXT(node_file_name: str, path: str):
 
 # Infomation node file
 file_names= getFileNames()
+
 for file_name in file_names:
-    CURRENT_INFOMATION_SUMMTION= f'Info){file_name}.txt'
+    CURRENT_INFOMATION_SUMMTION= f'Info){DATE}.txt'
     saveFileInfoInTXT(CURRENT_INFOMATION_SUMMTION, PATH)

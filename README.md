@@ -93,5 +93,5 @@ curl 'https://up.ufile.io/v1/upload/finalise' \
 
 ## By Me: @auther, Joung DongSub  
 ### Twiiter  
-- https://twitter.com/LVnnBhxDvR1fb4w
+<!-- - https://twitter.com/LVnnBhxDvR1fb4w --> banished
 - https://twitter.com/dong_ub  
