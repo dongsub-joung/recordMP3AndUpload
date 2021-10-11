@@ -16,11 +16,10 @@ file_size: int
 TOKENs= list()
 
 PATH= 'c:/Users/test/Documents/Sound recordings'
-FILE= "upload.txt"
+FILE= "fuid.txt"
 
-# return both index, value
-for index, file in files:
-    with open(f'{FILE}', 'r') as f:
+for index, file in enumerate(files):
+    with open(f'{str(PATH+FILE)}', 'r') as f:
         commend = str(f.read())
         # @todo bash commend convert
         print(commend)
@@ -28,6 +27,8 @@ for index, file in files:
 
     # print(f'file: {file}')
 
+for _ in files:
+    with open(f'{str(PATH+FILE)}')
 # -d 'fuid=7b40c3f085481e8fb4feb2a7c914905b' \
 # -d 'file_name=Screenshot 2021-07-09 at 15.47.05.png' \
 # -d 'file_type=png' \
