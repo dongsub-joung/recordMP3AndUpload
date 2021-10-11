@@ -5,6 +5,7 @@
 #           https://twitter.com/dong_ub
 # @Date @history   
 #   - 10-11 12:39   builing pseudo code
+#   -  ""   13:13   Fix core
 
 import os
 
@@ -14,25 +15,24 @@ def getCreatedTime(file_name: str):
     except IOError as e:
         print(e+"created time")
 
-def getModifiedTime(file_name: str):
+def getLength(file_name: str):
+    # @todo 
     try:
         return str(os.getctime(file_name))
     except IOError as e:
         print(e+"modified time")
 
-def setFileTitle(create: str, modify: str):
-    create.replace('mm/dd/yy', "")
-    modify.replace('mm/dd/yy', "")
-    FIRST= f'{create}__{modify}'
-
+def setFileTitle(create: str, LENGTH: str):
+    FIRST= create.replace('mm/dd/yy', "")
+    l_h= LENGTH[0,2]
+    l_m= LENGTH[2,4]
     c_h= create[0,2]
-    m_h= modify[0,2]
     c_m= create[2,4]
-    m_m= modify[2,4]
-    SECONDE_H= int(m_h) - int(c_h)
-    SECONDE_M= int(m_m) - int(c_m)
+    SECONDE_M= int(c_m) + int(l_m) % 60
+    SECONDE_PLUSE= int(int(c_m) + int(l_m) / 60)
+    SECONDE_H= int(c_h) + int(l_h) + SECONDE_PLUSE
     
-    return str(FIRST+SECONDE_H+"-"+SECONDE_M)
+    return str(FIRST+"__"+SECONDE_H+"-"+SECONDE_M)
 
 # Main
 PATH= 'c:/Users/test/Documents/Sound recordings'
@@ -41,8 +41,8 @@ FILENAME_AUTO= "Recording (autosaved)"
 
 def defaultName(file_name: str):
     CREATED= getCreatedTime(file_name)
-    MODIFID= getModifiedTime(file_name)
-    TITLE= setFileTitle(CREATED, MODIFID)
+    LENGTH= getLength(file_name)
+    TITLE= setFileTitle(CREATED, LENGTH)
     os.rename(file_name, TITLE)
 
 try:
