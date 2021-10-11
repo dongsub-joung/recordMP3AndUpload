@@ -87,9 +87,11 @@ curl 'https://up.ufile.io/v1/upload/finalise' \
 - https://help.ufile.io/en/article/upload-files-1p925sk/  
 
 ## Toy-tool
-### generate File's infomation per 
+### generate File's infomation per.py 
 - node file title: file's iher  
 - st_dev, st_uid, st_size, st_mtime  
+
+## powerShuntDownAlter.py
 
 ## By Me: @auther, Joung DongSub  
 ### Twiiter  

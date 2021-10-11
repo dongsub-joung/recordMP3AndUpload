@@ -47,5 +47,5 @@ def defaultName(file_name: str):
 
 try:
     defaultName(PATH+FILENAME)
-except Exception as e:
+except:
     defaultName(PATH+FILENAME_AUTO)
