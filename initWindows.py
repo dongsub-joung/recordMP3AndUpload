@@ -5,7 +5,9 @@
 #           https://twitter.com/dong_ub
 # @history, @Date  
 #   - renaming files, dir in 2021-10-08 / 14:57
-#   - Uploading @todo set the crul setion key in python 
+#   - Uploading @todo set the crul setion key in python
+#   - 10-11 Do micro component as ".py", it mean each components will have the independency of moduls. 
+#       *It's anwser why do not import class path in this project, but it's not restrict REST.API argument.
 # @Comment
 # Even when i made about "https://github.com/dongsub-joung/Sociology_bookList",
 # always always i'm alone, had have not a group in or main.
