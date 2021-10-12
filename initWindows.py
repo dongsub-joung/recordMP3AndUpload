@@ -128,3 +128,6 @@ for index in range(0, m_array_index):
 # 3. Uploading
 fuid: str= getFuid(m_file_sizes)
 uploadingDir(fuid, file_name, file_type, totoal_chunks)
+
+
+# wait(30000)

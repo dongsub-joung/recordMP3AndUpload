@@ -1,10 +1,11 @@
-# detali : Get auto for Upload each files
+# detali : Get auth at ufile.io for Upload each files
 # @auther: Joung DongSub
 # @Contact: e-mail or twitter  
 #           joungdongsub1103@gmail.com  
 #           https://twitter.com/dong_ub
 # @history, @Date  
-#   - 10-11 21:07 building core
+#   - 10-11 21:07   building core
+#   - 10-12 20:49   First of all, what one single file upload server set on today's.
 
 from datetime import date
 import os
@@ -15,20 +16,19 @@ file_size: int
 # data: str
 TOKENs= list()
 
-PATH= 'c:/Users/test/Documents/Sound recordings'
-FILE= "fuid.txt"
+PATH= 'c:/Users/test/Documents/Sound recordings/TOKEN'
+FILE= 'fuid.bat'
 
 for index, file in enumerate(files):
     with open(f'{str(PATH+FILE)}', 'r') as f:
         commend = str(f.read())
         # @todo bash commend convert
-        print(commend)
-        print(str(f"-d 'file_size={file_sizes[index]}'"))
-
+        # init .bat, then get the token 
+        TOKEN\file_size.txt
     # print(f'file: {file}')
 
-for _ in files:
-    with open(f'{str(PATH+FILE)}')
+
+
 # -d 'fuid=7b40c3f085481e8fb4feb2a7c914905b' \
 # -d 'file_name=Screenshot 2021-07-09 at 15.47.05.png' \
 # -d 'file_type=png' \
