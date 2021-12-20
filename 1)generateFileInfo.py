@@ -34,7 +34,8 @@ def saveFileInfoInTXT(node_file_name: str, path: str):
 
 
 # Main
-file_names= getFileNames()
-for file_name in file_names:
-    CURRENT_INFOMATION_SUMMTION= f'Info){DATE}.txt'
-    saveFileInfoInTXT(CURRENT_INFOMATION_SUMMTION, DIR)
+def __init__():
+    file_names= getFileNames()
+    for file_name in file_names:
+        CURRENT_INFOMATION_SUMMTION= f'Info){DATE}.txt'
+        saveFileInfoInTXT(CURRENT_INFOMATION_SUMMTION, DIR)

@@ -1,14 +1,14 @@
 import datetime
 import os
+import filepathing
 
-
-def init():
-    subdir: list()= "./"
+def init(subdir: str):
 
     DATE= datetime.date.today().strftime("%d%m%Y")
-    d= DATE[0,2]
-    m= DATE[2,4]
-    y= DATE[4,0]
+    DATE= DATE + ""
+    d= DATE[0:2]
+    m= DATE[2:4]
+    y= DATE[4:0]
 
     try:
         if subdir in m:
@@ -18,8 +18,8 @@ def init():
         else:
             os.makedirs(f'{y}/{m}/{d}')
     except FileExistsError as exist_e:
-        print(exist_e)
+        print(exist_e+"")
 
-PATH= 'c:/Users/test/Documents/'
-FOLDER= 'Sound recordings'
-init()
+
+dir= filepathing.getKubunPath()
+init(dir)

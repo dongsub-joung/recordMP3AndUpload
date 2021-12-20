@@ -1,9 +1,10 @@
 # Record Sound Files And Upload automatly  
 
 ## Progress Arrow  
-1. Scann the relative directory(For to get files info).    
-2. Make the folder on date.  
-3. converte the files name to "generated-moified"  
+1. Get today's value, then make some folders at "./".
+    - Scann the relative directory(For to get files info).    
+    - Make the folder on date.  
+3. converte the fileName to "{}-{}, generated, moified"  
 4. Upload the files, then midifiy the folder's title at time.  
 5. voice recorder make the new dir for saving.  
 > if new files are, perblishing on and repeating.
@@ -18,7 +19,7 @@
 ## Usage  
 
 ### Node File Valuable infomation(Once get "stat_result" when init)  
-    by OS __init__.pyi  
+    by OS __init__.py
 
 ```py
 st_mode: int  # protection bits,
