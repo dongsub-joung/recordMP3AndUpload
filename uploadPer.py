@@ -24,7 +24,7 @@ for index, file in enumerate(files):
         commend = str(f.read())
         # @todo bash commend convert
         # init .bat, then get the token 
-        TOKEN\file_size.txt
+        # TOKEN\file_size.txt
     # print(f'file: {file}')
 
 

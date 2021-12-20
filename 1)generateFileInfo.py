@@ -8,10 +8,9 @@
 
 import os
 import datetime
+import filePathing
 
-PATH= 'c:/Users/test/Documents/'
-FOLDER= 'Sound recordings'
-DIR= PATH+FOLDER
+DIR= filePathing.getKubunPath()
 DATE= datetime.date.today().strftime("%d%m%Y")
 
 def getFileNames():

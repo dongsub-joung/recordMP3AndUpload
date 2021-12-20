@@ -1,8 +1,7 @@
-# detali : Helper modifing per Sound File on raw real time demons.  
+# @detali : Helper modifing per Sound File on raw real time demons.  
 # @auther: Joung DongSub
 # @Contact: e-mail or twitter  
 #           joungdongsub1103@gmail.com  
-#           https://twitter.com/dong_ub
 # @Date @history   
 #   - 10-11 12:39   builing pseudo code
 #   -  ""   13:13   Fix core
