@@ -7,6 +7,7 @@
 #   -  ""   13:13   Fix core
 
 import os
+import filePathing
 
 def getCreatedTime(file_name: str):
     try:
@@ -33,18 +34,14 @@ def setFileTitle(create: str, LENGTH: str):
     
     return str(FIRST+"__"+SECONDE_H+"-"+SECONDE_M)
 
-# Main
-PATH= 'c:/Users/test/Documents/Sound recordings'
-FILENAME= "Recording"
-FILENAME_AUTO= "Recording (autosaved)"
-
 def defaultName(file_name: str):
     CREATED= getCreatedTime(file_name)
     LENGTH= getLength(file_name)
     TITLE= setFileTitle(CREATED, LENGTH)
     os.rename(file_name, TITLE)
 
+# Main
 try:
-    defaultName(PATH+FILENAME)
+    defaultName(filePathing.getKunPath())
 except:
-    defaultName(PATH+FILENAME_AUTO)
+    print("Err!")
