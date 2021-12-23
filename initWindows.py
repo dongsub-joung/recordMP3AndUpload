@@ -15,6 +15,7 @@
 
 import os
 import datetime
+import time
 
 PATH= 'c:/Users/test/Documents/Sound recordings'
 DEFAULT= "Recording"
@@ -71,8 +72,11 @@ def fileNameing(name: str, date: str, created: str, modified: str):
 
 def getFuid(file_sizes: int):
     # os.system.__code__("curl 'https://up.ufile.io/v1/upload/finalise' \")
+    DIR_TOKEN= '/TOKEN/fuid.txt'
+    
     try:
-        return input()
+        token= os.read(DIR_TOKEN)
+        return str(token)
     except Exception as e:
         print(e+"fuid")
         return str(e)
@@ -129,5 +133,5 @@ for index in range(0, m_array_index):
 fuid: str= getFuid(m_file_sizes)
 uploadingDir(fuid, file_name, file_type, totoal_chunks)
 
-
-# wait(30000)
+# 4. wait
+time.sleep(300)
