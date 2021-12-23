@@ -11,6 +11,7 @@ import datetime
 import filePathing
 
 DIR= filePathing.getKubunPath()
+# @todo Filezation "getDate.py"
 DATE= datetime.date.today().strftime("%d%m%Y")
 
 def getFileNames():
@@ -27,7 +28,11 @@ def saveFileInfoInTXT(node_file_name: str, path: str):
             byte_size: int= os.stat(path).st_size
             creation_on_windows: int= os.stat(path).st_ctime_ns
             modified_time_recently: float= os.stat(path).st_mtime
-            INFOMATION= f'device_info: {device_info}, uid: {uid}, byte_size: {byte_size}, creation_on_windows: {creation_on_windows}ms, modified_time_recently: {modified_time_recently}ms'
+            INFOMATION= f'device_info: {device_info}, 
+                uid: {uid}, 
+                byte_size: {byte_size}, 
+                creation_on_windows: {creation_on_windows}ms, 
+                modified_time_recently: {modified_time_recently}ms'
             f.write(f'{INFOMATION}\n entiry info\n{os.stat(path)}')
     except IOError as e:
         print(e+"stat_result, so set deifault")

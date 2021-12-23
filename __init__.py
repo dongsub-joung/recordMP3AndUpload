@@ -1,5 +1,6 @@
 import datetime
-
+import modifyFileName
+import filePathing
 
 def renaming():
     DATE= datetime.date.today().strftime("%d%m%Y")
@@ -21,3 +22,18 @@ def init():
 
 
 init()
+os.rename(file_name, TITLE)
+
+# Main
+# 1. Get File directory
+dir= filepathing.getKubunPath()
+
+# 2. Make data folder
+makeForders(dir)
+
+# @todo 3. File renaming selections
+#       modifyFilename::defaultName()
+#       self.renaming()
+defaultName(filePathing.getKunPath())
+
+# 4. Move files at the each foleders

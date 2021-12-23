@@ -8,6 +8,7 @@
 
 import os
 import filePathing
+import datetime
 
 def getCreatedTime(file_name: str):
     try:
@@ -24,10 +25,10 @@ def getLength(file_name: str):
 
 def setFileTitle(create: str, LENGTH: str):
     FIRST= create.replace('mm/dd/yy', "")
-    l_h= LENGTH[0,2]
-    l_m= LENGTH[2,4]
-    c_h= create[0,2]
-    c_m= create[2,4]
+    l_h= LENGTH[0:2]
+    l_m= LENGTH[2:4]
+    c_h= create[0:2]
+    c_m= create[2:4]
     SECONDE_M= int(c_m) + int(l_m) % 60
     SECONDE_PLUSE= int(int(c_m) + int(l_m) / 60)
     SECONDE_H= int(c_h) + int(l_h) + SECONDE_PLUSE
@@ -38,10 +39,29 @@ def defaultName(file_name: str):
     CREATED= getCreatedTime(file_name)
     LENGTH= getLength(file_name)
     TITLE= setFileTitle(CREATED, LENGTH)
-    os.rename(file_name, TITLE)
+    
+    # Value
+    print(TITLE) 
+    
+    try:
+        os.rename(file_name, TITLE)
+    except:
+        print("Err!")
 
-# Main
-try:
-    defaultName(filePathing.getKunPath())
-except:
-    print("Err!")
+def makeForders(subdir: str):
+
+    DATE= datetime.date.today().strftime("%d%m%Y")
+    DATE= DATE + ""
+    d= DATE[0:2]
+    m= DATE[2:4]
+    y= DATE[4:0]
+
+    try:
+        if subdir in m:
+            os.mkdir(f'{d}')
+        elif subdir in y:
+            os.makedirs(f'{m}/{d}')
+        else:
+            os.makedirs(f'{y}/{m}/{d}')
+    except FileExistsError as exist_e:
+        print(exist_e+"")
