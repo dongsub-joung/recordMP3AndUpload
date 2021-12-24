@@ -16,9 +16,7 @@
 import os
 import datetime
 import time
-
-PATH= 'c:/Users/test/Documents/Sound recordings'
-DEFAULT= "Recording"
+import Comm_filePathing
 
 # Simple functions
 def getIndex(index: int, array: list):
@@ -94,6 +92,31 @@ def getUploadingSize(file_names: str):
     return 
 
 # Main
+def addnamedata(file_names):
+    try:
+        for file_name in file_names:
+            file_name= str(PATH + '/' + file_name)
+            m_file_sizes+= getFileSizes(file_name, m_file_sizes)
+    except IOError as e:
+        print(e+"m_file_sizes")
+
+def addCreateData(file_names):
+    try:
+        for file_name in file_names:
+            file_name= str(PATH + '/' + file_name)
+            data_createds.insert(getCreatedTime(file_name))
+    except IOError as e:
+        print(e+"data_createds")
+
+def addModifiedData(file_names):
+    try:
+        for file_name in file_names:
+            file_name= str(PATH + '/' + file_name)
+            date_modifieds.insert(getModifiedTime(file_name))
+    except IOError as e:
+        print(e+"tdate_modifieds")
+
+PATH= Comm_filePathing.getWinPath()
 DATE= datetime.date.today().strftime("%d%m%Y")
 CURRENT_INFOMATION_SUMMTION= f'SUM){DATE}.txt'
 
@@ -104,24 +127,10 @@ file_names= data_createds= date_modifieds= list()
 file_names= getFileNames()
 saveFileInfoInTXT(CURRENT_INFOMATION_SUMMTION, PATH)
 
-try:
-    for file_name in file_names:
-        file_name= str(PATH + '/' + file_name)
-        m_file_sizes+= getFileSizes(file_name, m_file_sizes)
-except IOError as e:
-    print(e+"m_file_sizes")
-try:
-    for file_name in file_names:
-        file_name= str(PATH + '/' + file_name)
-        data_createds.insert(getCreatedTime(file_name))
-except IOError as e:
-    print(e+"data_createds")
-try:
-    for file_name in file_names:
-        file_name= str(PATH + '/' + file_name)
-        date_modifieds.insert(getModifiedTime(file_name))
-except IOError as e:
-    print(e+"tdate_modifieds")
+
+addnamedata(file_names)
+addCreateData(file_names)
+addModifiedData(file_names)
 
 # 2. Folder: Current Date
 #    File  : "Created Time" + "-" + "Modified Time"
