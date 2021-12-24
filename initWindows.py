@@ -14,8 +14,6 @@
 # Korean is always be korean, so "korea" means the same "the lowest trust society and community commpletly".
 
 import os
-import datetime
-import time
 import Comm_filePathing
 
 # Simple functions
@@ -38,22 +36,7 @@ def getFileName():
     except IOError as e:
         print(e+"file name")
 
-def getCreatedTime(file_name: str):
-    try:
-        return str(os.path.getmtime(file_name))
-    except IOError as e:
-        print(e+"created time")
 
-def getModifiedTime(file_name: str):
-    try:
-        return str(os.getctime(file_name))
-    except IOError as e:
-        print(e+"modified time")
-def getFileSizes(file_name: str, size_sum: int):
-   try:
-       size_sum+= os.stat(file_name).st_size
-    except IOError as e:
-        print(e+"size")
 
 # Methos
 def saveFileInfoInTXT(node_file_name: str, path: str):
@@ -92,45 +75,17 @@ def getUploadingSize(file_names: str):
     return 
 
 # Main
-def addnamedata(file_names):
-    try:
-        for file_name in file_names:
-            file_name= str(PATH + '/' + file_name)
-            m_file_sizes+= getFileSizes(file_name, m_file_sizes)
-    except IOError as e:
-        print(e+"m_file_sizes")
-
-def addCreateData(file_names):
-    try:
-        for file_name in file_names:
-            file_name= str(PATH + '/' + file_name)
-            data_createds.insert(getCreatedTime(file_name))
-    except IOError as e:
-        print(e+"data_createds")
-
-def addModifiedData(file_names):
-    try:
-        for file_name in file_names:
-            file_name= str(PATH + '/' + file_name)
-            date_modifieds.insert(getModifiedTime(file_name))
-    except IOError as e:
-        print(e+"tdate_modifieds")
 
 PATH= Comm_filePathing.getWinPath()
-DATE= datetime.date.today().strftime("%d%m%Y")
-CURRENT_INFOMATION_SUMMTION= f'SUM){DATE}.txt'
+# DATE= datetime.date.today().strftime("%d%m%Y")
 
 m_array_index= m_file_sizes= 0
 file_name= str(" ")
 file_names= data_createds= date_modifieds= list()
 
 file_names= getFileNames()
-saveFileInfoInTXT(CURRENT_INFOMATION_SUMMTION, PATH)
 
 
-addnamedata(file_names)
-addCreateData(file_names)
-addModifiedData(file_names)
 
 # 2. Folder: Current Date
 #    File  : "Created Time" + "-" + "Modified Time"
