@@ -51,16 +51,7 @@ def fileNameing(name: str, date: str, created: str, modified: str):
     TIME= f'{date}){created}_{modified}'
     os.rename('Sound recordings', TIME)
 
-def getFuid(file_sizes: int):
-    # os.system.__code__("curl 'https://up.ufile.io/v1/upload/finalise' \")
-    DIR_TOKEN= '/TOKEN/fuid.txt'
-    
-    try:
-        token= os.read(DIR_TOKEN)
-        return str(token)
-    except Exception as e:
-        print(e+"fuid")
-        return str(e)
+
  
 def uploadingDir(file_name: str, file_type: str, total_chunk: str):
     # @todo Handle for ', \ char
@@ -71,11 +62,17 @@ def uploadingDir(file_name: str, file_type: str, total_chunk: str):
     os.getcwd(str())
     return str(respon_oject)
 
-def getUploadingSize(file_names: str):
-    return 
+
+def getFuid():
+    # Previous complete, TOKEN getFuid(m_file_sizes)
+
+    fuid= '/TOKEN/fuid.TXT'
+    try:
+        os.read(fuid)
+    except:
+        print("Err: fuid")
 
 # Main
-
 PATH= Comm_filePathing.getWinPath()
 # DATE= datetime.date.today().strftime("%d%m%Y")
 
@@ -85,8 +82,6 @@ file_names= data_createds= date_modifieds= list()
 
 file_names= getFileNames()
 
-
-
 # 2. Folder: Current Date
 #    File  : "Created Time" + "-" + "Modified Time"
 m_array_index= getIndex(m_array_index, file_names)
@@ -94,7 +89,7 @@ for index in range(0, m_array_index):
     fileNameing(file_names[index], data_createds[index], date_modifieds[index])
 
 # 3. Uploading
-fuid: str= getFuid(m_file_sizes)
+fuid: str= getFuid()
 uploadingDir(fuid, file_name, file_type, totoal_chunks)
 
 # 4. wait
